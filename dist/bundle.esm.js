@@ -1,3 +1,5 @@
+console.info('bundle.esm.js');
+
 var download = {
     name: 'download',
     inserted: (el, binding) => {
