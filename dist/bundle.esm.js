@@ -1,5 +1,3 @@
-console.info('bundle.esm.js');
-
 var download = {
     name: 'download',
     inserted: (el, binding) => {
@@ -9,7 +7,11 @@ var download = {
 
             function downloadFiles(urls) {
                 if (!Array.isArray(urls)) {
-                    downloadSingleFile(urls);
+                    urls = [urls];
+                }
+
+                if (urls.length === 1) {
+                    downloadSingleFile(urls[0], window.document);
                     return;
                 }
 
