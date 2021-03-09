@@ -1,25 +1,25 @@
 ## 介绍
 该模块是 vue 指令模块，用于下载文件
 
-## 安装
+## 一、模块内安装 & 使用
+
 ```bash
 npm i download-directive --save
 ```
 
-## 使用
-1. 全局安装 
+1. 全局注册 
 ```js
 import downloadDirective from 'download-directive';
 Vue.use(downloadDirective);
 ```
 
-2. 局部安装
+2. 局部注册
 ```js
 <template lang="">
   <div>
-        <button
-        v-download="['http://127.0.0.1:59165/skeleton1.zip', 'http://127.0.0.1:59165/skeleton2.zip']"
-    >下载</button>
+        <button v-download="'./test_file.txt'">下载单文件</button>
+        <button v-download="['./test_file2.txt']">下载单文件</button>
+        <button v-download="['./test_file.txt', './test_file2.txt']">下载多文件</button>
   </div>
 </template>
 
@@ -33,8 +33,24 @@ export default {
 </script>
 ```
 
-## 使用
+## 一、浏览器直接安装 & 使用
+
 ```html
-<div v-download="'url'">下载单个文件</div>
-<div v-download="['url1', 'url2']">下载多个文件</div>
+<div id="app">
+    <button v-download="'./test_file.txt'">下载单文件</button>
+    <button v-download="['./test_file2.txt']">下载单文件</button>
+    <button v-download="['./test_file.txt', './test_file2.txt']">下载多文件</button>
+</div>
+<script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.9/vue.js"></script>
+<script src="../dist/bundle.umd.js"></script>
+<script>
+    Vue.use(downloadDirective.default);
+
+    var app = new Vue({
+        el: '#app',
+        data: {
+            message: 'Hello Vue!'
+        }
+    });
+</script>
 ```

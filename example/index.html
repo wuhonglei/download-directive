@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <button v-download="'./test_file.txt'">下载单文件</button>
+        <button v-download="['./test_file2.txt']">下载单文件</button>
+        <button v-download="['./test_file.txt', './test_file2.txt']">下载多文件</button>
+    </div>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.9/vue.js"></script>
+    <script src="../dist/bundle.umd.js"></script>
+    <script>
+        Vue.use(downloadDirective.default);
+
+        var app = new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello Vue!'
+            }
+        });
+    </script>
+</body>
+
+</html>
